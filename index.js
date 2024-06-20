@@ -12,12 +12,12 @@ const to = web3.Keypair.generate(); // Auto generator address SOL
         web3.SystemProgram.transfer({
           fromPubkey: from.publicKey,
           toPubkey: to.publicKey,
-          lamports: web3.LAMPORTS_PER_SOL / 100,
+          lamports: web3.LAMPORTS_PER_SOL * 0.001, // Ganti jumlah sol yang dikirim sesuka kalian
         }),
       );
     
       // MAIN TX
-      const txCount = 1; // Ubah angka sesuai dengan jumlah transaksi yang anda inginkan
+      const txCount = 100; // Ubah angka sesuai dengan jumlah transaksi yang anda inginkan
       for (let i = 0; i < txCount; i++) {
       const signature = await web3.sendAndConfirmTransaction(
         connection,
